@@ -16,7 +16,7 @@
  * ISIS iMTQ API - Operational Commands
  */
 
-#include <imtq.h>
+#include "imtq.h"
 #include <stdio.h>
 #include <stdlib.h>
 
