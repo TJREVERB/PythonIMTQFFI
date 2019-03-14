@@ -16,8 +16,8 @@
  * ISIS iMTQ API - Core Functions and Configuration Commands
  */
 
-#include <imtq.h>
-#include <i2c.h>
+#include "imtq.h"
+#include "i2c.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <sys/syscall.h>
