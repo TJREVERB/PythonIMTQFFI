@@ -10,7 +10,7 @@ cdef extern from "imtq-config.h":
       int64_t int64_val;              #*< Storage for signed eight-byte values */
       uint64_t uint64_val;            #*< Storage for unsigned eight-byte values */
       double double_val            #*< Storage for IEEE754 double-precision floating point values (eight bytes) */
-  ctypedef struct __attribute__((packed)) imtq_config_resp:
+  ctypedef struct imtq_config_resp:
       imtq_resp_header hdr;           #*< Response message header */
       uint16_t param;                 #*< Echo of requested parameter ID */
       imtq_config_value value        #*< Current value of requested parameter */
@@ -23,27 +23,27 @@ cdef extern from "imtq-data.h":
       NOMINAL,                    #*< System state, all system measurements */
       DEBUG                       #*< System state, current configuration, last test results */
   ctypedef uint32_t   adcs_power_status
-  ctypedef struct __attribute__((packed)) imtq_state:
+  ctypedef struct imtq_state:
       imtq_resp_header hdr;       #*< Response message header */
       uint8_t mode;               #*< Current system mode */
       uint8_t error;              #*< Error encountered during previous interation */
       uint8_t config;             #*< Parameter updated since system startup? 0 - No, 1 - Yes */
       uint32_t uptime          #*< System uptime in seconds */
-  ctypedef struct __attribute__((packed)) imtq_mtm_data:
+  ctypedef struct imtq_mtm_data:
     int32_t x;                  #*< X-axis */
     int32_t y;                  #*< Y-axis */
     int32_t z                 #*< Z-axis */
-  ctypedef struct __attribute__((packed)) imtq_mtm_msg:
+  ctypedef struct imtq_mtm_msg:
     imtq_resp_header hdr;        #*< Response message header */
     imtq_mtm_data data;          #*< MTM measurement data. Units dependent on function used */
     uint8_t act_status         #*< Coils actuation status during measurement. 0 - Not actuating, 1 - Actuating */
-  ctypedef struct __attribute__((packed)) imtq_axis_msg:
+  ctypedef struct imtq_axis_msg:
     imtq_resp_header hdr;                #*< Response message header */
     imtq_axis_data data                 #*< Axes data */
   ctypedef imtq_axis_msg imtq_coil_current  #*< Coil currents in [10<sup>-4</sup> A] returned by ::k_imtq_get_coil_current */
   ctypedef imtq_axis_msg imtq_coil_temp     #*< Coil temperatures in [<sup>o</sup>C] returned by ::k_imtq_get_coil_temps */
   ctypedef imtq_axis_msg imtq_dipole
-  ctypedef struct __attribute__((packed)) imtq_test_result:
+  ctypedef struct imtq_test_result:
     imtq_resp_header hdr;                #*< Response message header */
     uint8_t error;                       #*< Return code for the step */
     uint8_t step;                        #*< Axis being tested */
@@ -51,11 +51,11 @@ cdef extern from "imtq-data.h":
     imtq_mtm_data mtm_calib;             #*< Calibrated MTM data in [10<sup>-9</sup> T] */
     imtq_axis_data coil_current;         #*< Coil currents in [10<sup>-4</sup> A] */
     imtq_axis_data coil_temp            #*< Coil temperatures in [<sup>o</sup>C] */
-  ctypedef struct __attribute__((packed)) imtq_test_result_single:
+  ctypedef struct imtq_test_result_single:
     imtq_test_result init;               #*< Measurements before actuation */
     imtq_test_result step;               #*< Measurements during actuation of requested axis */
     imtq_test_result final              #*< Measurements after actuation */
-  ctypedef struct __attribute__((packed)) imtq_test_result_all:
+  ctypedef struct imtq_test_result_all:
     imtq_test_result init;               #*< Measurements before actuation */
     imtq_test_result x_pos;              #*< Measurements during actuation of positive x-axis */
     imtq_test_result x_neg;              #*< Measurements during actuation of negative x-axis */
@@ -64,7 +64,7 @@ cdef extern from "imtq-data.h":
     imtq_test_result z_pos;              #*< Measurements during actuation of positive z-axis */
     imtq_test_result z_neg;              #*< Measurements during actuation of negative z-axis */
     imtq_test_result final              #*< Measurements after actuation */
-  ctypedef struct __attribute__((packed)) imtq_detumble:
+  ctypedef struct imtq_detumble:
     imtq_resp_header hdr;                #*< Response message header */
     imtq_mtm_data mtm_calib;             #*< Calibrated MTM data in [10<sup>-9</sup> T] */
     imtq_mtm_data mtm_filter;            #*< Filtered MTM data in [10<sup>-9</sup> T] */
@@ -72,11 +72,11 @@ cdef extern from "imtq-data.h":
     imtq_axis_data dipole;               #*< Commanded actuation dipole in [10<sup>-4</sup> Am<sup>2</sup>] */
     imtq_axis_data cmd_current;          #*< Command current in [10<sup>-4</sup> A] */
     imtq_axis_data coil_current         #*< Coil currents in [10<sup>-4</sup> A] */
-  ctypedef struct __attribute__((packed)) imtq_axis_data_raw:
+  ctypedef struct imtq_axis_data_raw:
     int16_t x;                          #*< X-axis */
     int16_t y;                          #*< Y-axis */
     int16_t z                          #*< Z-axis */
-  ctypedef struct __attribute__((packed)) imtq_housekeeping_raw:
+  ctypedef struct imtq_housekeeping_raw:
     imtq_resp_header hdr;               #*< Response message header */
     uint16_t voltage_d;                 #*< Digital supply voltage */
     uint16_t voltage_a;                 #*< Analog supply voltage */
@@ -85,7 +85,7 @@ cdef extern from "imtq-data.h":
     imtq_axis_data_raw coil_current;    #*< Coil currents */
     imtq_axis_data_raw coil_temp;       #*< Coil temperatures */
     uint16_t mcu_temp                  #*< MCU temperature */
-  ctypedef struct __attribute__((packed)) imtq_housekeeping_eng:
+  ctypedef struct imtq_housekeeping_eng:
     imtq_resp_header hdr;               #*< Response message header */
     uint16_t voltage_d;                 #*< Digital supply voltage in [mV] */
     uint16_t voltage_a;                 #*< Analog supply voltage in [mV] */
@@ -156,7 +156,7 @@ cdef extern from "imtq.h":
     IMTQ_ERROR_MODE      = 0x05, #*< Command unavailable in current mode */
     IMTQ_ERROR_RESERVED  = 0x06, #*< (Internal reserved value) */
     IMTQ_ERROR_INTERNAL  = 0x07  #*< Internal error */
-  ctypedef struct __attribute__((packed)) imtq_resp_header:
+  ctypedef struct imtq_resp_header:
     uint8_t cmd;                #*< Command which produced this response */
     #*
      * Status byte
@@ -165,7 +165,7 @@ cdef extern from "imtq.h":
      * which can be extracted with ::kprv_imtq_check_error
      */
     uint8_t status
-  ctypedef struct  __attribute__((packed)) imtq_axis_data:
+  ctypedef struct  imtq_axis_data:
     int16_t x;                  #*< X-axis */
     int16_t y;                  #*< Y-axis */
     int16_t z                  #*< Z-axis */
