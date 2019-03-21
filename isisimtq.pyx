@@ -158,12 +158,12 @@ cdef extern from "imtq.h":
     IMTQ_ERROR_INTERNAL  = 0x07  #*< Internal error */
   ctypedef struct imtq_resp_header:
     uint8_t cmd;                #*< Command which produced this response */
-    #*
-     * Status byte
-     *
-     * Contains command response flags, like ::RESP_IVA_X, and a return code
-     * which can be extracted with ::kprv_imtq_check_error
-     */
+    # *
+    # * Status byte
+    # *
+    # * Contains command response flags, like ::RESP_IVA_X, and a return code
+    # * which can be extracted with ::kprv_imtq_check_error
+    # */
     uint8_t status
   ctypedef struct  imtq_axis_data:
     int16_t x;                  #*< X-axis */
