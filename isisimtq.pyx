@@ -173,17 +173,17 @@ cdef extern from "imtq.h":
     IDLE,           #*< Idle mode */
     SELFTEST,       #*< Self-test mode */
     DETUMBLE        #*< Detumble mode */
-  ctypedef struct adcs_orient:
+  # ctypedef struct adcs_orient:
     # Not an implemented structure/function. Need for compliance with generic API */
-  ctypedef struct adcs_spin:
+  # ctypedef struct adcs_spin:
     # Not an implemented structure/function. Need for compliance with generic API */
   KADCSStatus k_adcs_init(char * bus, uint16_t addr, int timeout)
   void k_adcs_terminate(void)
   KADCSStatus k_imtq_watchdog_start(void)
   KADCSStatus k_imtq_watchdog_stop(void)
   KADCSStatus k_imtq_reset(void)
-  KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const struct timespec * delay)
-  KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const struct timespec * delay)
+  KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const struct timespec* delay)
+  KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const struct timespec* delay)
   static inline KIMTQStatus kprv_imtq_check_error(uint8_t status) { return (KIMTQStatus) status & 0x0F; }
 
 
