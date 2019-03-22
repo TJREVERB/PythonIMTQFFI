@@ -129,11 +129,11 @@ cdef extern from "imtq-ops.h":
     TEST_Z_NEG       #*< Test negative z-axis */
   ctypedef uint16_t   adcs_mode_param
   ctypedef JsonNode * adcs_test_results
-  KADCSStatus k_adcs_noop(void)
+  KADCSStatus k_adcs_noop()
   KADCSStatus k_adcs_reset(KADCSReset type)
   KADCSStatus k_adcs_set_mode(ADCSMode mode, const adcs_mode_param * params)
   KADCSStatus k_adcs_run_test(ADCSTestType test, adcs_test_results buffer)
-  KADCSStatus k_imtq_cancel_op(void)
+  KADCSStatus k_imtq_cancel_op()
   KADCSStatus k_imtq_start_measurement(void)
   KADCSStatus k_imtq_start_actuation_current(imtq_axis_data current, uint16_t       time)
   KADCSStatus k_imtq_start_actuation_dipole(imtq_axis_data dipole, uint16_t time)
@@ -180,10 +180,10 @@ cdef extern from "imtq.h":
   # ctypedef struct adcs_spin:
     # Not an implemented structure/function. Need for compliance with generic API */
   KADCSStatus k_adcs_init(char * bus, uint16_t addr, int timeout)
-  void k_adcs_terminate(void)
-  KADCSStatus k_imtq_watchdog_start(void)
-  KADCSStatus k_imtq_watchdog_stop(void)
-  KADCSStatus k_imtq_reset(void)
+  void k_adcs_terminate()
+  KADCSStatus k_imtq_watchdog_start()
+  KADCSStatus k_imtq_watchdog_stop()
+  KADCSStatus k_imtq_reset()
   KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
   KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
 
