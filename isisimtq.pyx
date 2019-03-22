@@ -1,4 +1,4 @@
-from libc.stdint cimport uint8_t, uint16_t, uint32_t
+from libc.stdint cimport uint8_t, uint16_t, uint32_t, int8_t, int16_t, int32_t
 from libcpp cimport bool
 cdef extern from "imtq-config.h":
   ctypedef union imtq_config_value:
