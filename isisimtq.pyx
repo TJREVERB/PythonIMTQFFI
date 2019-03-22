@@ -2,26 +2,26 @@ from libc.stdint cimport uint8_t, uint16_t, uint32_t, uint64_t, int8_t, int16_t,
 from libcpp cimport bool
 cdef extern from "json.h":
   ctypedef struct JsonNode:
-    /* only if parent is an object or array (NULL otherwise) */
+    #/* only if parent is an object or array (NULL otherwise) */
     JsonNode *parent;
     JsonNode *prev, *next;
 	
-    /* only if parent is an object (NULL otherwise) */
-    char *key; /* Must be valid UTF-8. */
+    #/* only if parent is an object (NULL otherwise) */
+    char *key; #/* Must be valid UTF-8. */
 	
     JsonTag tag;
     union {
-	    /* JSON_BOOL */
+	    #/* JSON_BOOL */
 	    bool bool_;
 		
-	    /* JSON_STRING */
-	    char *string_; /* Must be valid UTF-8. */
+	    #/* JSON_STRING */
+	    char *string_; #/* Must be valid UTF-8. */
 		
-	    /* JSON_NUMBER */
+	    #/* JSON_NUMBER */
 	    double number_;
 		
-	    /* JSON_ARRAY */
-	    /* JSON_OBJECT */
+	    #/* JSON_ARRAY */
+	    #/* JSON_OBJECT */
 	    struct {
 		    JsonNode *head, *tail;
 	    } children;
