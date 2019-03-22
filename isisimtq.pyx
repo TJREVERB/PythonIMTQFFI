@@ -13,19 +13,20 @@ cdef extern from "json.h":
     union
     {
 	    #/* JSON_BOOL */
-	    bool bool_;
+        bool bool_;
 		
 	    #/* JSON_STRING */
-	    char *string_; #/* Must be valid UTF-8. */
+        char *string_; #/* Must be valid UTF-8. */
 		
 	    #/* JSON_NUMBER */
-	    double number_;
+        double number_;
 		
 	    #/* JSON_ARRAY */
 	    #/* JSON_OBJECT */
-	    struct {
-		    JsonNode *head, *tail;
-	    } children;
+        struct 
+	{
+            JsonNode *head, *tail;
+        } children;
     };
 	
 cdef extern from "imtq-config.h":
