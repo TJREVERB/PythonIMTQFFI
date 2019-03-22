@@ -134,7 +134,7 @@ cdef extern from "imtq-ops.h":
   KADCSStatus k_adcs_set_mode(ADCSMode mode, const adcs_mode_param * params)
   KADCSStatus k_adcs_run_test(ADCSTestType test, adcs_test_results buffer)
   KADCSStatus k_imtq_cancel_op()
-  KADCSStatus k_imtq_start_measurement(void)
+  KADCSStatus k_imtq_start_measurement()
   KADCSStatus k_imtq_start_actuation_current(imtq_axis_data current, uint16_t       time)
   KADCSStatus k_imtq_start_actuation_dipole(imtq_axis_data dipole, uint16_t time)
   KADCSStatus k_imtq_start_actuation_PWM(imtq_axis_data pwm, uint16_t time)
