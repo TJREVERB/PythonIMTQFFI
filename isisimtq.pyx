@@ -184,6 +184,5 @@ cdef extern from "imtq.h":
   KADCSStatus k_imtq_reset(void)
   KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, (const struct timespec) * delay)
   KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, (const struct timespec) * delay)
-  static inline KIMTQStatus kprv_imtq_check_error(uint8_t status) 
 
 
