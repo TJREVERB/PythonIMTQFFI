@@ -182,7 +182,7 @@ cdef extern from "imtq.h":
   KADCSStatus k_imtq_watchdog_start(void)
   KADCSStatus k_imtq_watchdog_stop(void)
   KADCSStatus k_imtq_reset(void)
-  KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, (const struct timespec) * delay)
-  KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, (const struct timespec) * delay)
+  KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
+  KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
 
 
