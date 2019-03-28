@@ -73,6 +73,10 @@ cdef extern from "imtq-data.h":
   ctypedef enum ADCSTelemType:
       NOMINAL,                    #*< System state, all system measurements */
       DEBUG                       #*< System state, current configuration, last test results */
+  ctypedef struct  imtq_axis_data:
+    int16_t x;                  #*< X-axis */
+    int16_t y;                  #*< Y-axis */
+    int16_t z                  #*< Z-axis */
   ctypedef uint32_t   adcs_power_status
   ctypedef struct imtq_state:
       imtq_resp_header hdr;       #*< Response message header */
