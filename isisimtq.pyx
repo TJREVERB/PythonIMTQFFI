@@ -10,7 +10,7 @@ cdef extern from "json.h":
     char *key; #/* Must be valid UTF-8. */
 	
     JsonTag tag;
-    union __bits{
+    union{
 	    #/* JSON_BOOL */
         bool bool_;
 		
