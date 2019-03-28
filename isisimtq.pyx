@@ -11,7 +11,7 @@ cdef extern from "json.h":
 	
     JsonTag tag;
     union
-	{
+{
 	    #/* JSON_BOOL */
         bool bool_;
 		
