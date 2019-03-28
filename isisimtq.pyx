@@ -1,5 +1,4 @@
-#from libc.stdint cimport uint8_t, uint16_t, uint32_t, uint64_t, int8_t, int16_t, int32_t, int64_t
-cimport libc.stdint
+from libc.stdint cimport uint8_t, uint16_t, uint32_t, uint64_t, int8_t, int16_t, int32_t, int64_t
 from libcpp cimport bool
 #cdef extern from "json.h":
   #ctypedef struct JsonNode:
