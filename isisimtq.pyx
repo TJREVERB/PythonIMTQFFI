@@ -37,6 +37,16 @@ cdef extern from "json.h":
      #};  
 	
 cdef extern from "imtq-config.h":
+  cdef extern from "json.h":
+    ctypedef enum JsonTag:
+        JSON_NULL,
+        JSON_BOOL,
+        JSON_STRING,
+        JSON_NUMBER,
+        JSON_ARRAY,
+        JSON_OBJECT
+    ctypedef struct JsonNode:
+        JsonNode;
   ctypedef union imtq_config_value:
       int8_t int8_val;                #*< Storage for signed single-byte values */
       uint8_t uint8_val;              #*< Storage for unsigned single-byte values */
