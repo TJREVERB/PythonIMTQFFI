@@ -58,6 +58,9 @@ cdef extern from "imtq-config.h":
       int64_t int64_val;              #*< Storage for signed eight-byte values */
       uint64_t uint64_val;            #*< Storage for unsigned eight-byte values */
       double double_val            #*< Storage for IEEE754 double-precision floating point values (eight bytes) */
+  ctypedef struct imtq_resp_header:
+      uint8_t cmd;
+      uint8_t status;
   ctypedef struct imtq_config_resp:
       imtq_resp_header hdr;           #*< Response message header */
       uint16_t param;                 #*< Echo of requested parameter ID */
