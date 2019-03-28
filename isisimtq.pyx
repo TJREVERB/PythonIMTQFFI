@@ -10,8 +10,8 @@ cdef extern from "json.h":
     char *key; #/* Must be valid UTF-8. */
 	
     JsonTag tag;
-    union
-    {
+    union:
+    #{
 	    #/* JSON_BOOL */
         bool bool_;
 		
@@ -23,11 +23,9 @@ cdef extern from "json.h":
 		
 	    #/* JSON_ARRAY */
 	    #/* JSON_OBJECT */
-        struct 
-	{
+        struct children: 
             JsonNode *head, *tail;
-        } children;
-    };
+        
 	
 cdef extern from "imtq-config.h":
   ctypedef union imtq_config_value:
