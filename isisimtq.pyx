@@ -25,7 +25,7 @@ cdef extern from "json.h":
 	    #/* JSON_OBJECT */
         struct children: 
             JsonNode *head, *tail;
-     }  
+     };  
 	
 cdef extern from "imtq-config.h":
   ctypedef union imtq_config_value:
