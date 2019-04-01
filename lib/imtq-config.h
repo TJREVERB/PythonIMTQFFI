@@ -190,6 +190,16 @@ typedef struct {
      */
     uint8_t status;
 } __attribute__((packed)) imtq_resp_header;
+typedef enum {
+    ADCS_OK,
+    ADCS_ERROR,                  /**< Generic error */
+    ADCS_ERROR_CONFIG,           /**< Configuration error */
+    ADCS_ERROR_NO_RESPONSE,      /**< No response received from subsystem */
+    ADCS_ERROR_INTERNAL,         /**< An error was thrown by the subsystem */
+    ADCS_ERROR_MUTEX,            /**< Mutex-related error */
+    ADCS_ERROR_NOT_IMPLEMENTED   /**< Requested function has not been implemented for the subsystem */
+} KADCSStatus;
+
 
 /**
  * Message structure returned by all get/set/reset configuration requests
