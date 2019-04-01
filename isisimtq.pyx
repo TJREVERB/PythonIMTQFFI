@@ -242,7 +242,7 @@ cdef extern from "imtq.h":
   #KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
 
 def py_k_adcs_init(char * bus, addr, int timeout):
-        return k_adcs_init(char * bus, <uint16_t>addr, int timeout)
+        return k_adcs_init(bus, <uint16_t>addr, timeout)
 def py_k_adcs_terminate():
         return k_adcs_terminate()
 def py_k_imtq_watchdog_start()
