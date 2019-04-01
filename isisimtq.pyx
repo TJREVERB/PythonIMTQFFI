@@ -234,7 +234,7 @@ cdef extern from "imtq.h":
     # Not an implemented structure/function. Need for compliance with generic API */
   ctypedef struct adcs_spin
     # Not an implemented structure/function. Need for compliance with generic API */
-  const struct timespec MUTEX_TIMEOUT = {.tv_sec = 1, .tv_nsec = 0 };
+  ctypedef struct timespec
   KADCSStatus k_adcs_init(char * bus, uint16_t addr, int timeout)
   void k_adcs_terminate()
   KADCSStatus k_imtq_watchdog_start()
