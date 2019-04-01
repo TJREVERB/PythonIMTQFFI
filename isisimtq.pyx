@@ -284,7 +284,7 @@ def py_k_imtq_get_test_results_single(data):
 def py_k_imtq_get_test_results_all(data):
         return k_imtq_get_test_results_all(<imtq_test_result_all *>data)
 def py_k_imtq_get_detumble(data):
-	return k_imtq_get_detumble(<imtq_detumble *>data)
+        return k_imtq_get_detumble(<imtq_detumble *>data)
 def py_k_imtq_get_raw_housekeeping(data):
         return k_imtq_get_raw_housekeeping(<imtq_housekeeping_raw *>data)
 def py_k_imtq_get_eng_housekeeping(data):
