@@ -232,13 +232,93 @@ cdef extern from "imtq.h":
     # Not an implemented structure/function. Need for compliance with generic API */
   ctypedef struct adcs_spin
     # Not an implemented structure/function. Need for compliance with generic API */
-  ctypedef struct timespec
+  #ctypedef struct timespec
   KADCSStatus k_adcs_init(char * bus, uint16_t addr, int timeout)
   void k_adcs_terminate()
   KADCSStatus k_imtq_watchdog_start()
   KADCSStatus k_imtq_watchdog_stop()
   KADCSStatus k_imtq_reset()
-  KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
-  KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
+  #KADCSStatus k_adcs_passthrough(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
+  #KADCSStatus kprv_imtq_transfer(const uint8_t * tx, int tx_len, uint8_t * rx, int rx_len, const timespec * delay)
 
+def py_k_adcs_init(char * bus, addr, int timeout):
+        return k_adcs_init(char * bus, <uint16_t>addr, int timeout)
+def py_k_adcs_terminate():
+        return k_adcs_terminate()
+def py_k_imtq_watchdog_start()
+        return k_imtq_watchdog_start()
+def py_k_imtq_watchdog_stop():
+        return k_imtq_watchdog_stop()
+def py_k_imtq_reset():
+        return k_imtq_reset()
+def py_k_imtq_get_param(param, response):
+        return k_imtq_get_param(<uint16_t>param, <imtq_config_resp *>response)
+def py_k_imtq_set_param(param,value,response):
+        return k_imtq_set_param(<uint16_t>param, <const imtq_config_value *>value, <imtq_config_resp *>response)
+def py_k_imtq_reset_param(param, response):
+        return k_imtq_reset_param(<uint16_t>param, <imtq_config_resp *>response)
+def py_k_adcs_get_power_status(data):
+        return k_adcs_get_power_status(<adcs_power_status *>data)
+def py_k_adcs_get_mode(mode):
+        k_adcs_get_mode(<ADCSMode *>mode)
+def py_k_adcs_get_orientation(data):
+        return k_adcs_get_orientation(<adcs_orient *>data)
+def py_k_adcs_get_spin(data):
+        return k_adcs_get_spin(<adcs_spin *>data)
+def py_k_adcs_get_telemetry(type, buffer):
+        return k_adcs_get_telemetry(<ADCSTelemType>type, <JsonNode *>buffer)
+def py_k_imtq_get_system_state(state):
+        return k_imtq_get_system_state(<imtq_state *>state)
+def py_k_imtq_get_raw_mtm(data):
+        return k_imtq_get_raw_mtm(<imtq_mtm_msg *>data)
+def py_k_imtq_get_calib_mtm(data):
+        return k_imtq_get_calib_mtm(<imtq_mtm_msg *>data)
+def py_k_imtq_get_coil_current(data):
+        return k_imtq_get_coil_current(<imtq_coil_current *>data)
+def py_k_imtq_get_coil_temps(data):
+        return k_imtq_get_coil_temps(<imtq_coil_temp *>data)
+def py_k_imtq_get_dipole(data):
+        return k_imtq_get_dipole(<imtq_dipole *>data)
+def py_k_imtq_get_test_results_single(data):
+        return k_imtq_get_test_results_single(<imtq_test_result_single *>data)
+def py_k_imtq_get_test_results_all(data):
+        return k_imtq_get_test_results_all(<imtq_test_result_all *>data)
+def py_k_imtq_get_detumble(data):
+	return k_imtq_get_detumble(<imtq_detumble *>data)
+def py_k_imtq_get_raw_housekeeping(data):
+        return k_imtq_get_raw_housekeeping(<imtq_housekeeping_raw *>data)
+def py_k_imtq_get_eng_housekeeping(data):
+        return k_imtq_get_eng_housekeeping(<imtq_housekeeping_eng *>data)
+def py_kprv_adcs_get_status_telemetry(buffer):
+        return kprv_adcs_get_status_telemetry(<JsonNode *>buffer)
+def py_kprv_adcs_get_nominal_telemetry(buffer):
+        return kprv_adcs_get_nominal_telemetry(<JsonNode *>buffer)
+def py_kprv_adcs_get_debug_telemetry(buffer):
+        return kprv_adcs_get_debug_telemetry(<JsonNode *>buffer)
+def py_kprv_adcs_process_test(parent, test):
+        return kprv_adcs_process_test(<JsonNode *>parent, <imtq_test_result>test)
+def py_k_adcs_noop():
+        return k_adcs_noop()
+def py_k_adcs_reset(type):
+        return k_adcs_reset(<KADCSReset>type)
+def py_k_adcs_set_mode(mode, params):
+        return k_adcs_set_mode(<ADCSMode>mode, <const adcs_mode_param *>params)
+def py_k_adcs_run_test(test, buffer):
+        return k_adcs_run_test(<ADCSTestType>test, <adcs_test_results>buffer)
+def py_k_imtq_cancel_op():
+        return k_imtq_cancel_op()
+def py_k_imtq_start_measurement():
+        return k_imtq_start_measurement()
+def py_k_imtq_start_actuation_current(current, time):
+        return k_imtq_start_actuation_current(<imtq_axis_data>current, <uint16_t>ime)
+def py_k_imtq_start_actuation_dipole(dipole, time):
+        return k_imtq_start_actuation_dipole(<imtq_axis_data>dipole, <uint16_t>time)
+def py_k_imtq_start_actuation_PWM(pwm, time):
+        return k_imtq_start_actuation_PWM(<imtq_axis_data>pwm, <uint16_t>time)
+def py_k_imtq_start_test(axis):
+        return k_imtq_start_test(<ADCSTestType>axis)
+def py_k_imtq_start_detumble(time):
+        return k_imtq_start_detumble(<uint16_t>time)
+
+	
 
