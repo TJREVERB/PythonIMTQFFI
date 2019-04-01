@@ -253,14 +253,14 @@ def py_k_imtq_reset():
         return k_imtq_reset()
 def py_k_imtq_get_param(param, response):
         return k_imtq_get_param(<uint16_t>param, <imtq_config_resp *>response)
-def py_k_imtq_set_param(param,value,response):
-        return k_imtq_set_param(<uint16_t>param, <const imtq_config_value *>value, <imtq_config_resp *>response)
+#def py_k_imtq_set_param(param,value,response):
+        #return k_imtq_set_param(<uint16_t>param, <const imtq_config_value *>value, <imtq_config_resp *>response)
 def py_k_imtq_reset_param(param, response):
         return k_imtq_reset_param(<uint16_t>param, <imtq_config_resp *>response)
-def py_k_adcs_get_power_status(data):
-        return k_adcs_get_power_status(<adcs_power_status *>data)
-def py_k_adcs_get_mode(mode):
-        k_adcs_get_mode(<ADCSMode *>mode)
+#def py_k_adcs_get_power_status(data):
+        #return k_adcs_get_power_status(<adcs_power_status *>data)
+#def py_k_adcs_get_mode(mode):
+        # k_adcs_get_mode(<ADCSMode *>mode)
 def py_k_adcs_get_orientation(data):
         return k_adcs_get_orientation(<adcs_orient *>data)
 def py_k_adcs_get_spin(data):
@@ -301,8 +301,8 @@ def py_k_adcs_noop():
         return k_adcs_noop()
 def py_k_adcs_reset(type):
         return k_adcs_reset(<KADCSReset>type)
-def py_k_adcs_set_mode(mode, params):
-        return k_adcs_set_mode(<ADCSMode>mode, <const adcs_mode_param *>params)
+#def py_k_adcs_set_mode(mode, params):
+        #return k_adcs_set_mode(<ADCSMode>mode, <const adcs_mode_param *>params)
 def py_k_adcs_run_test(test, buffer):
         return k_adcs_run_test(<ADCSTestType>test, <adcs_test_results>buffer)
 def py_k_imtq_cancel_op():
@@ -310,7 +310,7 @@ def py_k_imtq_cancel_op():
 def py_k_imtq_start_measurement():
         return k_imtq_start_measurement()
 def py_k_imtq_start_actuation_current(current, time):
-        return k_imtq_start_actuation_current(<imtq_axis_data>current, <uint16_t>ime)
+        return k_imtq_start_actuation_current(<imtq_axis_data>current, <uint16_t>time)
 def py_k_imtq_start_actuation_dipole(dipole, time):
         return k_imtq_start_actuation_dipole(<imtq_axis_data>dipole, <uint16_t>time)
 def py_k_imtq_start_actuation_PWM(pwm, time):
