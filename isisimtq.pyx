@@ -245,7 +245,7 @@ def py_k_adcs_init(char * bus, addr, int timeout):
         return k_adcs_init(bus, <uint16_t>addr, timeout)
 def py_k_adcs_terminate():
         return k_adcs_terminate()
-def py_k_imtq_watchdog_start()
+def py_k_imtq_watchdog_start():
         return k_imtq_watchdog_start()
 def py_k_imtq_watchdog_stop():
         return k_imtq_watchdog_stop()
