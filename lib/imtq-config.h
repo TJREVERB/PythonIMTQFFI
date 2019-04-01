@@ -180,6 +180,16 @@ typedef union {
     uint64_t uint64_val;            /**< Storage for unsigned eight-byte values */
     double double_val;              /**< Storage for IEEE754 double-precision floating point values (eight bytes) */
 } imtq_config_value;
+typedef struct {
+    uint8_t cmd;                /**< Command which produced this response */
+    /**
+     * Status byte
+     *
+     * Contains command response flags, like ::RESP_IVA_X, and a return code
+     * which can be extracted with ::kprv_imtq_check_error
+     */
+    uint8_t status;
+} __attribute__((packed)) imtq_resp_header;
 
 /**
  * Message structure returned by all get/set/reset configuration requests
