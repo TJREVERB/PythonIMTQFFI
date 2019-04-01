@@ -8,8 +8,7 @@ cdef extern from "json.h":
         JSON_NUMBER,
         JSON_ARRAY,
         JSON_OBJECT
-    ctypedef struct JsonNode:
-        JsonNode;
+    ctypedef struct JsonNode
 	
   #ctypedef struct JsonNode:
     #/* only if parent is an object or array (NULL otherwise) */
