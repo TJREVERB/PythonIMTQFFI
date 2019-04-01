@@ -149,6 +149,8 @@ cdef extern from "imtq-data.h":
     imtq_axis_data coil_current;        #*< Coil currents in [10<sup>-4</sup> A] */
     imtq_axis_data coil_temp;           #*< Coil temperatures in [<sup>o</sup>C] */
     int16_t mcu_temp                  #*< MCU temperature in [<sup>o</sup>C] */
+  ctypedef struct adcs_orient
+  ctypedef struct adcs_spin
   KADCSStatus k_adcs_get_power_status(adcs_power_status * data)
   KADCSStatus k_adcs_get_mode(ADCSMode * mode)
   KADCSStatus k_adcs_get_orientation(adcs_orient * data)
@@ -228,9 +230,9 @@ cdef extern from "imtq.h":
     IDLE,           #*< Idle mode */
     SELFTEST,       #*< Self-test mode */
     DETUMBLE        #*< Detumble mode */
-  # ctypedef struct adcs_orient:
+  ctypedef struct adcs_orient
     # Not an implemented structure/function. Need for compliance with generic API */
-  # ctypedef struct adcs_spin:
+  ctypedef struct adcs_spin
     # Not an implemented structure/function. Need for compliance with generic API */
   KADCSStatus k_adcs_init(char * bus, uint16_t addr, int timeout)
   void k_adcs_terminate()
