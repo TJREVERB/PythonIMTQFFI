@@ -22,7 +22,7 @@
 
 #include <pthread.h>
 #include <stdint.h>
-#include "i2c.h"
+#include "PythonFFI-master/lib/i2c.h"
 
 /**
  *  @name Command Response Flags
