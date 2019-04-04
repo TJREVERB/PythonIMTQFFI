@@ -2,10 +2,10 @@ CC = gcc
 
 default: libimtq.a
 
-libimtq.a: imtq-config.o imtq-data.o imtq-ops.o imtq-core.o json.o 
+libimtq.a: imtq-config.o imtq-data.o imtq-ops.o imtq-core.o json.o i2c.o
 	ar rcs $@ $^
     
-imtq.o: imtq.h imtq-config.c imtq-config.h imtq-data.c imtq-data.h imtq-ops.c imtq-ops.h imtq-core.c json.h json.c
+imtq.o: imtq.h imtq-config.c imtq-config.h imtq-data.c imtq-data.h imtq-ops.c imtq-ops.h imtq-core.c json.h json.c $(PYTHONFFI-MASTER_DIR)/$(LIB_DIR)/i2c.h $(PYTHONFFI-MASTER_DIR)/$(LIB_DIR)/i2c.c  
 	echo $(CC) -c $^
 
 clean:
