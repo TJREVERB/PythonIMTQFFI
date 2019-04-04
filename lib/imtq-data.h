@@ -21,6 +21,7 @@
 #pragma once
 
 #include "json.h"
+#include "imtq-config.h"
 
 /** \cond WE DO NOT WANT TO HAVE THESE IN OUR GENERATED DOCS */
 /* Data Request Commands */
@@ -90,30 +91,13 @@ typedef struct {
     imtq_mtm_data data;          /**< MTM measurement data. Units dependent on function used */
     uint8_t act_status;          /**< Coils actuation status during measurement. 0 - Not actuating, 1 - Actuating */
 } __attribute__((packed)) imtq_mtm_msg;
-typedef struct {
-    uint8_t cmd;                /**< Command which produced this response */
-    /**
-     * Status byte
-     *
-     * Contains command response flags, like ::RESP_IVA_X, and a return code
-     * which can be extracted with ::kprv_imtq_check_error
-     */
-    uint8_t status;
-} __attribute__((packed)) imtq_resp_header;
+
 typedef struct {
     int16_t x;                  /**< X-axis */
     int16_t y;                  /**< Y-axis */
     int16_t z;                  /**< Z-axis */
 } __attribute__((packed)) imtq_axis_data;
-typedef enum {
-    ADCS_OK,
-    ADCS_ERROR,                  /**< Generic error */
-    ADCS_ERROR_CONFIG,           /**< Configuration error */
-    ADCS_ERROR_NO_RESPONSE,      /**< No response received from subsystem */
-    ADCS_ERROR_INTERNAL,         /**< An error was thrown by the subsystem */
-    ADCS_ERROR_MUTEX,            /**< Mutex-related error */
-    ADCS_ERROR_NOT_IMPLEMENTED   /**< Requested function has not been implemented for the subsystem */
-} KADCSStatus;
+
 
 /**
  * Generic structure for messages relating to the axes
