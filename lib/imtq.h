@@ -23,6 +23,7 @@
 #include <pthread.h>
 #include <stdint.h>
 #include "i2c.h"
+#include "imtq-config.h"
 
 /**
  *  @name Command Response Flags
@@ -37,15 +38,6 @@
 /**
  * ADCS function return values
  */
-typedef enum {
-    ADCS_OK,
-    ADCS_ERROR,                  /**< Generic error */
-    ADCS_ERROR_CONFIG,           /**< Configuration error */
-    ADCS_ERROR_NO_RESPONSE,      /**< No response received from subsystem */
-    ADCS_ERROR_INTERNAL,         /**< An error was thrown by the subsystem */
-    ADCS_ERROR_MUTEX,            /**< Mutex-related error */
-    ADCS_ERROR_NOT_IMPLEMENTED   /**< Requested function has not been implemented for the subsystem */
-} KADCSStatus;
 
 /**
  * iMTQ Return Values
