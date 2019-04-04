@@ -1,0 +1,12 @@
+CC = gcc
+
+default: libn.a
+
+libn.a: a.o
+	ar rcs $@ $^
+    
+a.o: i2c.h i2c.c
+	$(CC) -c $<
+
+clean:
+	rm *.o *.a

@@ -1,0 +1,12 @@
+CC = gcc
+
+default: libds.a
+
+libds.a: a.o
+	ar rcs $@ $^
+    
+a.o: deploystatus.h deploystatus.c
+	$(CC) -c $<
+
+clean:
+	rm *.o *.a
